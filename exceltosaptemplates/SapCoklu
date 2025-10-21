@@ -1,0 +1,57 @@
+Sub RunSAPScript()
+    Dim SapGuiAuto As Object
+    Dim application As Object
+    Dim connection As Object
+    Dim session As Object
+    Dim i As Integer
+    Dim Lastrow As Long
+   
+
+    ' SAP GUI oturumunu başlat
+    On Error Resume Next ' Hataları geçici olarak yok say
+    Set SapGuiAuto = GetObject("SAPGUI")
+    If SapGuiAuto Is Nothing Then
+        MsgBox "SAP GUI açık değil!", vbCritical
+        Exit Sub
+    End If
+    Set application = SapGuiAuto.GetScriptingEngine
+    If application Is Nothing Then
+        MsgBox "SAP Scripting motoru bulunamadı!", vbCritical
+        Exit Sub
+    End If
+
+    ' Bağlantıyı al
+    Set connection = application.Children(0)
+    If connection Is Nothing Then
+        MsgBox "Aktif bir SAP bağlantısı bulunamadı!", vbCritical
+        Exit Sub
+    End If
+
+    ' Oturumu al
+    Set session = connection.Children(0)
+    If session Is Nothing Then
+        MsgBox "SAP oturumu başlatılamadı!", vbCritical
+        Exit Sub
+    End If
+
+    ' SAP ekranını büyüt
+    session.findById("wnd[0]").maximize
+
+    ' Sayfadaki son satırı bul
+    Lastrow = ThisWorkbook.Sheets("Sayfa1").Cells(ThisWorkbook.Sheets("Sayfa1").Rows.Count, 1).End(xlUp).Row
+
+    '' Aşağıdaki değişkenler excelde 1,2,3 nolu sütunların başlık hariç ilk hücrelerini seçer (Aşağıdaki kodun anlamı: A Sütunundan A2, B sütunundan B2, C sütunundan C2) (Bu örnekte sayfa adı Sayfa1 olarak belirlenmiştir, verileri aktaracağınız sayfanın adıyla güncelleyin)
+
+    ' Satırlar arasında döngü
+    For i = 2 To Lastrow ' Burada döngünün kaç kez tekrar edeceğini belirleyin. Örneğin, 10 satıra kadar döngü yapar.
+        deger1 = ThisWorkbook.Sheets("Sayfa1").Cells(i, 1).Value
+        deger2 = ThisWorkbook.Sheets("Sayfa1").Cells(i, 2).Value
+        deger3 = ThisWorkbook.Sheets("Sayfa1").Cells(i, 3).Value
+        
+        
+
+        ' SAP işlemleri (Buradan sonra SAPTAN aldığınız kodu yapıştırın. Next i ifadesini silmeyin. Eğer yoksa da mutlaka ekleyin.
+
+
+    Next i
+End Sub
