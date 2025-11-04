@@ -26,6 +26,13 @@ Sub RunSAPScript()
         Exit Sub
     End If
 
+' Birden fazla oturum varsa uyarı ver
+    If connection.Children.Count > 1 Then
+        MsgBox "Birden fazla aktif SAP oturumu var!" & vbCrLf & _
+               "Lütfen yalnızca bir SAP oturumu açık kalsın.", vbExclamation
+        Exit Sub
+    End If
+
     ' Oturumu al
     Set session = connection.Children(0)
     If session Is Nothing Then
