@@ -26,6 +26,7 @@ Sub RunSAPScript()
         MsgBox "Aktif bir SAP bağlantısı bulunamadı!", vbCritical
         Exit Sub
     End If
+
 ' Birden fazla oturum varsa uyarı ver
     If connection.Children.Count > 1 Then
         MsgBox "Birden fazla aktif SAP oturumu var!" & vbCrLf & _
