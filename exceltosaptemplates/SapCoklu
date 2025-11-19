@@ -51,7 +51,7 @@ Sub RunSAPScript()
 
     ' Satırlar arasında döngü
     For i = 2 To Lastrow ' Burada döngünün kaç kez tekrar edeceğini belirleyin. Örneğin, 10 satıra kadar döngü yapar.
-        deger1 = ThisWorkbook.Sheets("Sayfa1").Cells(i, 1).Value
+        deger1 = TRIM(ThisWorkbook.Sheets("Sayfa1").Cells(i, 1).Value) 'Burada TRIM fonksiyonu başında ve sonundaki boşlukları temizler.
         deger2 = ThisWorkbook.Sheets("Sayfa1").Cells(i, 2).Value
         deger3 = ThisWorkbook.Sheets("Sayfa1").Cells(i, 3).Value
         
