@@ -45,7 +45,7 @@ Sub RunSAPScript()
 
     ' Aşağıdaki değişkenler excelde 1,2,3 nolu sütunların başlık hariç ilk hücrelerini seçer (Aşağıdaki kodun anlamı: A Sütunundan A2, B sütunundan B2, C sütunundan C2) (Bu örnekte sayfa adı Sayfa1 olarak belirlenmiştir, verileri aktaracağınız sayfanın adıyla güncelleyin)
     
-        deger1 = ThisWorkbook.Sheets("Sayfa1").Cells(2, 1).Value
+        deger1 = TRIM(ThisWorkbook.Sheets("Sayfa1").Cells(i, 1).Value) 'Burada TRIM fonksiyonu başında ve sonundaki boşlukları temizler.
         deger2 = ThisWorkbook.Sheets("Sayfa1").Cells(2, 2).Value
         deger3 = ThisWorkbook.Sheets("Sayfa1").Cells(2, 3).Value
 
