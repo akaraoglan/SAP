@@ -1,4 +1,4 @@
-#INPUTBOX
+# INPUTBOX
 
 deger = InputBox("Tutar") 'Klasik Inputbox 
 
