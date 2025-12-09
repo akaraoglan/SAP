@@ -7,9 +7,7 @@ deger = Trim(InputBox("Tutar")) 'Baştaki ve Sondaki Boşlukları Temizler
 deger = Val(Trim(InputBox("Tutar"))) 'Stringi sayıya çevirir. 
 
 # DÖNGÜ İÇİ INPUTBOX
-For i = 2 To Lastrow
-    deger1 = Trim(ActiveWorkbook.Sheets("Sayfa1").Cells(i, 1).Value)
-    
+
     If i = 2 Then
         deger2 = Trim(InputBox("deger2 için bir değer girin:", "deger2"))
         If deger2 = "" Then
@@ -17,8 +15,6 @@ For i = 2 To Lastrow
         End If
     End If
 
-    deger3 = ActiveWorkbook.Sheets("Sayfa1").Cells(i, 3).Value
+' Döngü içinde If i = 2 Then kullanıldığında, InputBox yalnızca ilk döngüde çalışır, deger2 bir kez alınır ve döngü sonuna kadar aynı değerle işlemler devam eder.
 
-    ' SAP işlemleri...
-Next i
 
