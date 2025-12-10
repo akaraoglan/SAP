@@ -59,6 +59,7 @@ Sub RunSAPScript()
 
         ' SAP işlemleri (Buradan sonra SAPTAN aldığınız kodu yapıştırın. Next i ifadesini silmeyin. Eğer yoksa da mutlaka ekleyin.
 
-
+'A sütunundan C sütununa kadar yeşile boyar
+ ActiveWorkbook.Sheets("Sayfa1").Range("A" & i & ":C" & i).Interior.Color = vbGreen
     Next i
 End Sub
